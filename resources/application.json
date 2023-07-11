@@ -1,0 +1,128 @@
+{
+    "package": "jeyroik/df-telegram:0.*",
+    "version": "1.0.0",
+    "name": "telegram",
+    "title": "Телеграм",
+    "description": "Получайте и отправляйте сообщения в Телеграм с помощью вашего бота на основании данных из DeFlou",
+    "type": "public",
+    "avatar": "https://img.jeyroik.ru/tg.png",
+    "resolver": "deflou\\components\\resolvers\\ResolverTelegram",
+    "options": {
+        "operation__base_url": {
+          "type": "string",
+          "name": "bot_url",
+          "title": "Базовый URL бота",
+          "description": "Базовый URL, по которому ваш бот будет принимать сообщения от DeFlou",
+          "default": "",
+          "required": true,
+          "encode": true,
+          "hashing": false
+        },
+        "operation__method": {
+            "type": "string",
+            "name": "operation__method",
+            "title": "HTTP метод",
+            "description": "HTTP метод для отправки запроса боту",
+            "default": "post",
+            "required": true,
+            "encode": false,
+            "hashing": false
+        },
+        "message_to__url": {
+            "type": "string",
+            "name": "message_to__url",
+            "title": "URL отправки сообщений",
+            "description": "Адрес, по которому ваш бот будет принимать запросы на отправку сообщения. Оставьте пустым, если совпадает с базовым URL",
+            "default": "",
+            "required": true,
+            "encode": false,
+            "hashing": false
+        },
+        "bot_token": {
+          "type": "string",
+          "name": "bot_token",
+          "title": "Токен бота",
+          "description": "Токен, который должен принимать ваш бот, чтобы отличать запросы DeFlou от прочих",
+          "default": "",
+          "required": true,
+          "encode": true,
+          "hashing": true
+        }
+    },
+    "vendor": {
+        "name": "jeyroik",
+        "title": "Jey Roik",
+        "description": "Jey Roik",
+        "contacts": {
+            "email": "jeyroik@gmail.com"
+        }
+    },
+    "events": {
+        "message_from": {
+            "name": "message_from",
+            "title": "Получено сообщение",
+            "description": "Ваш бот получил сообщение из Телеграма",
+            "params": {
+                "bot_name": {
+                    "name": "bot_name",
+                    "title": "Имя бота",
+                    "description": "Имя бота"
+                },
+                "chat_id": {
+                    "name": "chat_id",
+                    "title": "ID чата",
+                    "description": "Уникальный идентификатор чата. В случае, если сообщение пришло из топика, то текущий ID будет выглядеть как chatId/topicId, т.е. например 56472625/41. Если не из топика, то просто chatId, т.е. как пример 56472625"
+                },
+                "message": {
+                    "name": "message",
+                    "title": "Сообщение",
+                    "description": "Текст полученного сообщения"
+                },
+                "message_id": {
+                    "name": "message_id",
+                    "title": "ID",
+                    "description": "ID сообщения, которое пришло из Телеграма, например 38304"
+                },
+                "topic_id": {
+                    "name": "topic_id",
+                    "title": "ID топика",
+                    "description": "Уникальный идентификатор топика. Топик General не имеет данного ID. Для чатов без топиков параметр также пустой"
+                },
+                "user_from__username": {
+                    "name": "user_from__username",
+                    "title": "Ник отправителя",
+                    "description": "Ник пользователя, который отправил сообщение"
+                }
+            }
+        }
+    },
+    "operations": {
+        "message_to": {
+            "name": "message_to",
+            "title": "Отправить сообщение",
+            "description": "Отправить запрос вашему боту на отправку сообщения в Телеграм",
+            "params": {
+                "chat_id": {
+                    "name": "chat_id",
+                    "title": "ID чата",
+                    "description": "Уникальный идентификатор чата"
+                },
+                "topic_id": {
+                    "name": "topic_id",
+                    "title": "ID топика",
+                    "description": "Уникальный идентификатор топика"
+                },
+                "message": {
+                    "name": "message",
+                    "title": "Сообщение",
+                    "description": "Текст сообщения, который бот должен отправить пользователю в указанный чат"
+                },
+                "parse_mode": {
+                    "name": "parse_mode",
+                    "title": "Режим разбора",
+                    "description": "Режим, в котором Телеграм должен будет разбирать сообщение"
+                }
+            }
+        }
+    }
+}
