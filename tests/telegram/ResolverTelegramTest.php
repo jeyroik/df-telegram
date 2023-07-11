@@ -11,6 +11,8 @@ use deflou\components\triggers\ETrigger;
 use deflou\components\triggers\operations\plugins\PluginTelegramParseModes;
 use deflou\components\triggers\TriggerService;
 use deflou\interfaces\extensions\instances\IExtensionInstanceResolver;
+use deflou\interfaces\extensions\instances\IExtensionInstanceTriggers;
+use deflou\interfaces\instances\IInstance;
 use deflou\interfaces\resolvers\events\IResolvedEvent;
 use deflou\interfaces\resolvers\operations\IResolvedOperationHttp;
 use deflou\interfaces\triggers\events\ITriggerEvent;
