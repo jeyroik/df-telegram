@@ -15,19 +15,20 @@ class PluginTemplateHtmlParseModes extends PluginTemplateHtml
         PluginTelegramParseModes::MODE__MARKDOWN => 'Можно использовать **text** для выделения жирным и т.п.',
     ];
     
-    protected function renderEachItem($templateData, $contextParam, $render): array
+    protected function renderEachItem($templateData, $contextParam, $render, $data): array
     {
         $items = [];
-        $itemViewPath = $this->getParameter(static::PARAM__VIEW_ITEM)->getValue();
 
         foreach ($templateData as $pasreMode) {
-            $data = [
+            $curData = [
                 ITemplateHtml::FIELD__PARAM => $contextParam,
                 IParam::FIELD__NAME => $pasreMode,
                 IParam::FIELD__TITLE => ucfirst($pasreMode),
                 IParam::FIELD__DESCRIPTION => $this->descriptions[$pasreMode] ?? $pasreMode
             ];
-            $items[] = $render->render($itemViewPath, $data);
+            $this->applyItemData($data, $curData);
+            $curData = array_merge($data, $curData);
+            $items[] = $render->render($this->itemViewPath, $curData);
         }
 
         return $items;
