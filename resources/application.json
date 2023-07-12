@@ -1,6 +1,6 @@
 {
     "package": "jeyroik/df-telegram:0.*",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "telegram",
     "title": "Телеграм",
     "description": "Получайте и отправляйте сообщения в Телеграм с помощью вашего бота на основании данных из DeFlou",
@@ -80,7 +80,7 @@
                 },
                 "message_id": {
                     "name": "message_id",
-                    "title": "ID",
+                    "title": "ID сообщения",
                     "description": "ID сообщения, которое пришло из Телеграма, например 38304"
                 },
                 "topic_id": {
