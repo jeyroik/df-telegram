@@ -19,12 +19,12 @@ class PluginTemplateHtmlParseModes extends PluginTemplateHtml
     {
         $items = [];
 
-        foreach ($templateData as $pasreMode) {
+        foreach ($templateData as $parseMode) {
             $curData = [
                 ITemplateHtml::FIELD__PARAM => $contextParam,
-                IParam::FIELD__NAME => $pasreMode,
-                IParam::FIELD__TITLE => ucfirst($pasreMode),
-                IParam::FIELD__DESCRIPTION => $this->descriptions[$pasreMode] ?? $pasreMode
+                IParam::FIELD__NAME => $parseMode,
+                IParam::FIELD__TITLE => ucfirst($parseMode),
+                IParam::FIELD__DESCRIPTION => $this->descriptions[$parseMode] ?? $parseMode
             ];
             $this->applyItemData($data, $curData);
             $curData = array_merge($data, $curData);

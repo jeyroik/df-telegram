@@ -1,3 +1,7 @@
+# 0.1.2
+
+- Fixed template plugin value.
+
 # 0.1.1
 
 - Fixed message id title.

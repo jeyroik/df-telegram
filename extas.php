@@ -40,7 +40,7 @@ return [
                     IParam::FIELD__NAME => PluginTelegramParseModes::NAME,
                     IParam::FIELD__TITLE => '@item.title',
                     IParam::FIELD__DESCRIPTION => 'Кликните по нужному режиму, чтобы выбрать его',
-                    IParam::FIELD__VALUE => '@item.value'
+                    IParam::FIELD__VALUE => '@item.name'
                 ]
             ]
         ]
