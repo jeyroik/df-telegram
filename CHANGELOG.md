@@ -1,3 +1,7 @@
+# 0.1.4
+
+- Removed applying data info.
+
 # 0.1.3
 
 - Updated each item render.

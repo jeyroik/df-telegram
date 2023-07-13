@@ -4,6 +4,7 @@ namespace deflou\components\plugins\telegram;
 use deflou\components\plugins\triggers\PluginTemplateHtml;
 use deflou\components\triggers\operations\plugins\PluginTelegramParseModes;
 use deflou\interfaces\triggers\ITemplateHtml;
+use extas\components\parameters\Param;
 use extas\interfaces\parameters\IParam;
 
 class PluginTemplateHtmlParseModes extends PluginTemplateHtml
@@ -24,10 +25,14 @@ class PluginTemplateHtmlParseModes extends PluginTemplateHtml
                 ITemplateHtml::FIELD__PARAM => $contextParam,
                 IParam::FIELD__NAME => $parseMode,
                 IParam::FIELD__TITLE => ucfirst($parseMode),
-                IParam::FIELD__DESCRIPTION => $this->descriptions[$parseMode] ?? $parseMode
+                IParam::FIELD__DESCRIPTION => $this->descriptions[$parseMode] ?? $parseMode,
+                'plugin' => new Param([
+                    Param::FIELD__NAME => PluginTelegramParseModes::NAME,
+                    Param::FIELD__VALUE => $parseMode,
+                    Param::FIELD__TITLE => ucfirst($parseMode)
+                ])
             ];
 
-            $this->applyItemData($data, $curData);
             $items[] = $render->render($this->itemViewPath, $curData);
         }
 
