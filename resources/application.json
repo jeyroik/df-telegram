@@ -1,6 +1,6 @@
 {
     "package": "jeyroik/df-telegram:0.*",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "name": "telegram",
     "title": "Телеграм",
     "description": "Получайте и отправляйте сообщения в Телеграм с помощью вашего бота на основании данных из DeFlou",
