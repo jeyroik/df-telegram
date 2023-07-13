@@ -1,3 +1,7 @@
+# 0.1.3
+
+- Updated each item render.
+
 # 0.1.2
 
 - Fixed template plugin value.

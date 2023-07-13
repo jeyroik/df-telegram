@@ -26,8 +26,8 @@ class PluginTemplateHtmlParseModes extends PluginTemplateHtml
                 IParam::FIELD__TITLE => ucfirst($parseMode),
                 IParam::FIELD__DESCRIPTION => $this->descriptions[$parseMode] ?? $parseMode
             ];
+
             $this->applyItemData($data, $curData);
-            $curData = array_merge($data, $curData);
             $items[] = $render->render($this->itemViewPath, $curData);
         }
 
