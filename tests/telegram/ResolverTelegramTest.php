@@ -17,7 +17,7 @@ use deflou\interfaces\resolvers\events\IResolvedEvent;
 use deflou\interfaces\resolvers\operations\IResolvedOperationHttp;
 use deflou\interfaces\triggers\events\ITriggerEvent;
 use deflou\interfaces\triggers\operations\ITriggerOperation;
-use deflou\interfaces\triggers\operations\ITriggerOperationValue;
+use deflou\interfaces\triggers\values\IValueSense;
 use extas\interfaces\parameters\IParam;
 use tests\ExtasTestCase;
 
@@ -27,6 +27,7 @@ class ResolverTelegramTest extends ExtasTestCase
         'jeyroik/df-triggers' => ['php', 'php'],
         'jeyroik/df-applications' => ['php', 'json'],
         'jeyroik/extas-conditions' => ['php', 'json'],
+        'jeyroik/extas-secrets' => ['php', 'php'],
         '' => ['php', 'php']
         //'vendor/l,ib' => ['php', 'json'] storage ext, extas ext
     ];
@@ -63,15 +64,19 @@ class ResolverTelegramTest extends ExtasTestCase
                 MessageTo::PARAM__PARSE_MODE->value => [
                     IParam::FIELD__NAME => MessageTo::PARAM__PARSE_MODE->value,
                     IParam::FIELD__VALUE => [
-                        ITriggerOperationValue::FIELD__PLUGINS => [PluginTelegramParseModes::NAME],
-                        ITriggerOperationValue::FIELD__VALUE => 'markdown'
+                        [
+                            IValueSense::FIELD__PLUGINS_NAMES => [PluginTelegramParseModes::NAME],
+                            IValueSense::FIELD__VALUE => 'markdown'
+                        ]
                     ]
                 ],
                 MessageTo::PARAM__MESSAGE->value => [
                     IParam::FIELD__NAME => MessageTo::PARAM__MESSAGE->value,
                     IParam::FIELD__VALUE => [
-                        ITriggerOperationValue::FIELD__PLUGINS => [],
-                        ITriggerOperationValue::FIELD__VALUE => 'Use **markdown** parse mode'
+                        [
+                            IValueSense::FIELD__PLUGINS_NAMES => [],
+                            IValueSense::FIELD__VALUE => 'Use **markdown** parse mode'
+                        ]
                     ]
                 ]
             ]

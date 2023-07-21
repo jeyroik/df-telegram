@@ -35,6 +35,16 @@
             "description": "Адрес, по которому ваш бот будет принимать запросы на отправку сообщения. Оставьте пустым, если совпадает с базовым URL",
             "default": "",
             "required": true,
+            "encode": true,
+            "hashing": false
+        },
+        "bot_name": {
+            "type": "string",
+            "name": "bot_name",
+            "title": "Имя бота",
+            "description": "Имя бота, например, DeFlouBot",
+            "default": "DeFlouBot",
+            "required": true,
             "encode": false,
             "hashing": false
         },
@@ -46,7 +56,7 @@
           "default": "",
           "required": true,
           "encode": true,
-          "hashing": true
+          "hashing": false
         }
     },
     "vendor": {
@@ -63,11 +73,6 @@
             "title": "Получено сообщение",
             "description": "Ваш бот получил сообщение из Телеграма",
             "params": {
-                "bot_name": {
-                    "name": "bot_name",
-                    "title": "Имя бота",
-                    "description": "Имя бота"
-                },
                 "chat_id": {
                     "name": "chat_id",
                     "title": "ID чата",
