@@ -1,11 +1,13 @@
 <?php
 
 use deflou\components\applications\Telegram;
+use deflou\components\applications\telegram\operations\MessageTo;
 use deflou\components\plugins\telegram\PluginRequestHeaders;
 use deflou\components\plugins\telegram\PluginTemplateHtmlParseModes;
 use deflou\components\triggers\operations\plugins\PluginTelegramParseModes;
 use deflou\interfaces\stages\resolvers\http\IStageRequestHeaders;
 use deflou\interfaces\triggers\operations\ITriggerOperationPlugin;
+use deflou\interfaces\triggers\values\plugins\IValuePlugin;
 use extas\interfaces\parameters\IParam;
 use extas\interfaces\plugins\IPlugin;
 
@@ -45,13 +47,14 @@ return [
             ]
         ]
     ],
-    'trigger_operation_plugins' => [
+    'trigger_value_plugins' => [
         [
-            ITriggerOperationPlugin::FIELD__NAME => PluginTelegramParseModes::NAME,
-            ITriggerOperationPlugin::FIELD__TITLE => 'Режимы разбора',
-            ITriggerOperationPlugin::FIELD__DESCRIPTION => 'Подставить режимы разбора',
-            ITriggerOperationPlugin::FIELD__CLASS => PluginTelegramParseModes::class,
-            ITriggerOperationPlugin::FIELD__APPLICATION_NAME => Telegram::NAME->value
+            IValuePlugin::FIELD__NAME => PluginTelegramParseModes::NAME,
+            IValuePlugin::FIELD__TITLE => 'Режимы разбора',
+            IValuePlugin::FIELD__DESCRIPTION => 'Подставить режимы разбора',
+            IValuePlugin::FIELD__CLASS => PluginTelegramParseModes::class,
+            IValuePlugin::FIELD__APPLICATION_NAME => Telegram::NAME->value,
+            IValuePlugin::FIELD__APPLY_TO_PARAM => [MessageTo::PARAM__PARSE_MODE->value]
         ]
     ]
 ];
