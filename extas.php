@@ -6,7 +6,6 @@ use deflou\components\plugins\telegram\PluginRequestHeaders;
 use deflou\components\plugins\telegram\PluginTemplateHtmlParseModes;
 use deflou\components\triggers\operations\plugins\PluginTelegramParseModes;
 use deflou\interfaces\stages\resolvers\http\IStageRequestHeaders;
-use deflou\interfaces\triggers\operations\ITriggerOperationPlugin;
 use deflou\interfaces\triggers\values\plugins\IValuePlugin;
 use extas\interfaces\parameters\IParam;
 use extas\interfaces\plugins\IPlugin;
