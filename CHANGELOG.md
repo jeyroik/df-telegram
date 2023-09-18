@@ -1,6 +1,10 @@
+# 1.1.0
+
+- Updated to `df-triggers` v4.
+
 # 1.0.0
 
-- Updated to `df-triggers v3`.
+- Updated to `df-triggers` v3.
 - Moved bot name from event parameters to application options.
 - Fixed encode/hash flags for options.
 

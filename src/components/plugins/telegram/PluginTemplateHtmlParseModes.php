@@ -1,7 +1,7 @@
 <?php
 namespace deflou\components\plugins\telegram;
 
-use deflou\components\plugins\triggers\PluginTemplateHtml;
+use deflou\components\plugins\templates\PluginTemplateHtml;
 use deflou\components\triggers\operations\plugins\PluginTelegramParseModes;
 use deflou\interfaces\triggers\ITemplateHtml;
 use extas\components\parameters\Param;

@@ -1,25 +1,25 @@
 <?php
 namespace deflou\components\triggers\operations\plugins;
 
-use deflou\interfaces\instances\IInstance;
 use deflou\interfaces\resolvers\events\IResolvedEvent;
-use deflou\interfaces\triggers\ITrigger;
-use deflou\interfaces\triggers\operations\ITriggerOperationPlugin;
-use deflou\interfaces\triggers\operations\plugins\IPluginDispatcher;
+use deflou\interfaces\templates\contexts\IContext;
+use deflou\interfaces\templates\IWithTemplate;
+use deflou\interfaces\triggers\values\plugins\IValuePlugin;
+use deflou\interfaces\triggers\values\plugins\IValuePluginDispatcher;
 
-class PluginTelegramParseModes implements IPluginDispatcher
+class PluginTelegramParseModes implements IValuePluginDispatcher
 {
     public const MODE__HTML = 'html';
     public const MODE__MARKDOWN = 'markdown';
 
     public const NAME = 'tg_parse_modes';
 
-    public function __invoke(string|int $triggerValue, IResolvedEvent $event): string|int
+    public function __invoke(string|int $triggerValue, IResolvedEvent $event, IValuePlugin $plugin): string|int
     {
         return $triggerValue;
     }
 
-    public function getTemplateData(IInstance $eventInstance, ITrigger $trigger, ITriggerOperationPlugin $plugin): array
+    public function getTemplateData(IWithTemplate $templated, IContext $context): array
     {
         return [
             static::MODE__HTML,
