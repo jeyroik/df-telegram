@@ -1,3 +1,7 @@
+# 1.1.1
+
+- Updated app ver.
+
 # 1.1.0
 
 - Updated to `df-triggers` v4.
